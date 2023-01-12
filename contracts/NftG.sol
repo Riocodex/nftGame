@@ -11,13 +11,11 @@ contract NFT is ERC721URIStorage {
     function mint(string memory _tokenURI) external returns(uint){
         tokenCount ++;
         _safeMint(msg.sender, tokenCount);
-        updateMetadata(tokenCount, _tokenURI);
+        updateMetadata(tokenCount, _tokenURI)
         return(tokenCount);
     }
-    
     function updateMetadata(_tokenCount, _tokenURI) public{
         _setTokenURI(_tokenCount, _tokenURI);
-
     }
 
 }
