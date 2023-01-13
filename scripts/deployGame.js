@@ -8,15 +8,23 @@ async function main() {
 
     console.log("Contract deployed to : " , nftContract.address);
 
-    // const fruits = ['apple', 'banana'];
-
-    // // Increase the probability of banana being chosen by adding it multiple times
-    // const weightedFruits = fruits.concat(Array(4).fill('banana'));
-
-    // const randomFruit = weightedFruits[Math.floor(Math.random() * weightedFruits.length)];
-    // console.log(randomFruit);
+   
 
     const [minter1, minter2] = await hre.ethers.getSigners();
+
+    await nftContract.connect(minter1).mint()
+    await nftContract.connect(minter2).mint()
+
+
+     const minter = ['minter1', 'minter2'];
+
+    // Increase the probability of banana being chosen by adding it multiple times
+    const winingMinter = minter.concat(Array(4).fill('banana'));
+
+    const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
+    console.log(winner);
+
+
 
 }
 
