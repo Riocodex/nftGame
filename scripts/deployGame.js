@@ -15,10 +15,13 @@ async function main() {
     await nftContract.connect(minter1).mint()
     await nftContract.connect(minter2).mint()
 
-    const minter1Strength = await nftContract.connect(minter1).getStrengths(1)
-    const minter2Strength = await nftContract.connect(minter2).getStrengths(2)
+    let minter1Strength = await nftContract.connect(minter1).getStrengths(1)
+    let minter2Strength = await nftContract.connect(minter2).getStrengths(2)
+    
+
     console.log(minter1Strength, minter2Strength)
     const minters = ['minter1', 'minter2']
+   function choose(){
     if(minter1Strength == minter2Strength){
         const winnerIndex = Math.floor(Math.random() * minters.length);
         winner = minters[winnerIndex]
@@ -53,15 +56,10 @@ async function main() {
             console.log("current strenght", minter2Strength)
         }
     }
+   }
 
 
-    //  const fruits = ['apple', 'banana'];
 
-    // // Increase the probability of banana being chosen by adding it multiple times
-    // const weightedFruits = fruits.concat(Array(4).fill('banana'));
-
-    // const randomFruit = weightedFruits[Math.floor(Math.random() * weightedFruits.length)];
-    // console.log(randomFruit);
 
 
 
