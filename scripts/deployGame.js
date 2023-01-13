@@ -28,8 +28,11 @@ async function main() {
         
         if(minter[winner] == "minter1"){
             minter1Strength++
+            console.log(minter1Strength)
         }else{
             minter2Strength++
+            console.log(minter2Strength)
+
         }
         
     }else if(minter1Strength > minter2Strength) {
@@ -39,8 +42,10 @@ async function main() {
         console.log("strength has been increased for",winner)
         if(winner == "minter1"){
             minter1Strength++
+            console.log(minter1Strength)
         }else{
             minter2Strength++
+            console.log(minter2Strength)
         }
     }else{
         const minter = ['minter1', 'minter2'];
@@ -49,8 +54,11 @@ async function main() {
         console.log("strength has been increased for",winner)
         if(winner == "minter1"){
             minter1Strength++
+            console.log(minter1Strength)
         }else{
             minter2Strength++
+            console.log(minter2Strength)
+
         }
     }
 
