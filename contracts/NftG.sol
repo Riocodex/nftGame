@@ -13,7 +13,7 @@ contract NftG is ERC721URIStorage  {
 
     mapping(uint256 => uint256) public tokenIdToStrengths;
 
-    track Strengths
+    // track Strengths
     //track hp
     //track strength
     //track speed
