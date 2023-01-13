@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/Base64.sol";
 
-contract ChainBattles is ERC721URIStorage  {
+contract NftG is ERC721URIStorage  {
     using Strings for uint256;
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
@@ -19,7 +19,7 @@ contract ChainBattles is ERC721URIStorage  {
     //track speed
 
 
-    constructor() ERC721 ("Chain Battles", "CBTLS"){
+    constructor() ERC721 ("RIO NFT", "RIO"){
     }
 
     function generateCharacter(uint256 tokenId) public view returns(string memory){
@@ -42,7 +42,7 @@ contract ChainBattles is ERC721URIStorage  {
         uint256 strengths = tokenIdToStrengths[tokenId];
         return strengths.toString();
     }
-    
+
 
     function getTokenURI(uint256 tokenId) public view returns (string memory){
         bytes memory dataURI = abi.encodePacked(
