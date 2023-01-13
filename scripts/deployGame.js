@@ -24,30 +24,33 @@ async function main() {
     if(minter1Strength === minter2Strength){
         const minter = ['minter1', 'minter2'];
         const winner = Math.floor(Math.random() * minter.length);
+        console.log("strength has been increased for",minter[winner])
+        
         if(minter[winner] == "minter1"){
-            minter1Strength ++
+            minter1Strength++
         }else{
-            minter2Strength ++
+            minter2Strength++
         }
+        
     }else if(minter1Strength > minter2Strength) {
         const minter = ['minter1', 'minter2'];
         const winingMinter = minter.concat(Array(minter1Strength).fill('minter1'));
         const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
-        console.log(winner)
+        console.log("strength has been increased for",winner)
         if(winner == "minter1"){
-            minter1Strength ++
+            minter1Strength++
         }else{
-            minter2Strength ++
+            minter2Strength++
         }
     }else{
         const minter = ['minter1', 'minter2'];
         const winingMinter = minter.concat(Array(minter2Strength).fill('minter2'));
         const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
-        console.log(winner)
+        console.log("strength has been increased for",winner)
         if(winner == "minter1"){
-            minter1Strength ++
+            minter1Strength++
         }else{
-            minter2Strength ++
+            minter2Strength++
         }
     }
 
