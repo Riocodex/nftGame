@@ -22,7 +22,15 @@ async function main() {
     const winingMinter = minter.concat(Array(4).fill('minter1'));
 
     const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
-    console.log(winner);
+    if(winner == "minter1"){
+        await nftContract.connect(minter1).train(1)
+        const strength = await nftContract.connect(minter1).getStrengths(1)
+        console.log("minter1's current strenght is", strength)
+    }else{
+        await nftContract.connect(minter2).train(1)
+        const strength = await nftContract.connect(minter2).getStrengths(1)
+        console.log("minter2's current strenght is", strength)
+    }
 
 
 
