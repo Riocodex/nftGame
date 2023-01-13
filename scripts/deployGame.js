@@ -15,66 +15,27 @@ async function main() {
     await nftContract.connect(minter1).mint()
     await nftContract.connect(minter2).mint()
 
-    let minter1Strength = await nftContract.connect(minter1).getStrengths(1)
-    let minter2Strength = await nftContract.connect(minter2).getStrengths(2)
+    const minter1Strength = await nftContract.connect(minter1).getStrengths(1)
+    const minter2Strength = await nftContract.connect(minter2).getStrengths(2)
 
+    console.log(minter1Strength, minter2Strength)
+    minter1Strength++
+    console.log(minter1Strength, minter2Strength)
+    minter2Strength++
+    console.log(minter1Strength, minter2Strength)
+    minter1Strength++
     console.log(minter1Strength, minter2Strength)
 
 
-    if(minter1Strength === minter2Strength){
-        const minter = ['minter1', 'minter2'];
-        const winner = Math.floor(Math.random() * minter.length);
-        console.log("strength has been increased for",minter[winner])
-        
-        if(minter[winner] == "minter1"){
-            await nftContract.connect(minter1).train(1)
-            console.log(minter1Strength)
-        }else{
-            await nftContract.connect(minter2).train(2)
-            console.log(minter2Strength)
 
-        }
-        
-    }else if(minter1Strength > minter2Strength) {
-        const minter = ['minter1', 'minter2'];
-        const winingMinter = minter.concat(Array(minter1Strength).fill('minter1'));
-        const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
-        console.log("strength has been increased for",winner)
-        if(winner == "minter1"){
-            await nftContract.connect(minter1).train(1)
-            console.log(minter1Strength)
-        }else{
-            await nftContract.connect(minter2).train(1)
-            console.log(minter2Strength)
-        }
-    }else{
-        const minter = ['minter1', 'minter2'];
-        const winingMinter = minter.concat(Array(minter2Strength).fill('minter2'));
-        const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
-        console.log("strength has been increased for",winner)
-        if(winner == "minter1"){
-            await nftContract.connect(minter1).train(1)
-            console.log(minter1Strength)
-        }else{
-            await nftContract.connect(minter2).train(2)
-            console.log(minter2Strength)
 
-        }
-    }
+    //  const fruits = ['apple', 'banana'];
 
-    // Increase the probability of banana being chosen by adding it multiple times
-    // const winingMinter = minter.concat(Array(4).fill('minter1'));
+    // // Increase the probability of banana being chosen by adding it multiple times
+    // const weightedFruits = fruits.concat(Array(4).fill('banana'));
 
-   
-    // if(winner == "minter1"){
-        
-        
-    //     console.log("minter1's current strength is", strength)
-    // }else{
-        
-        
-    //     console.log("minter2's current strength is", strength)
-    // }
+    // const randomFruit = weightedFruits[Math.floor(Math.random() * weightedFruits.length)];
+    // console.log(randomFruit);
 
 
 
