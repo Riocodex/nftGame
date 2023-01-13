@@ -1,5 +1,3 @@
-
-
 const main = async ()=>{
     try{
       const nftContractFactory = await hre.ethers.getContractFactory("NftG");
@@ -7,6 +5,8 @@ const main = async ()=>{
       await nftContract.deployed();
   
       console.log("Contract deployed to : " , nftContract.address);
+
+      
       process.exit(0);
     }catch(error){
       console.log(error);
@@ -14,5 +14,3 @@ const main = async ()=>{
     }
   }
   main();
-  // const runMain = async()=>{}
-
