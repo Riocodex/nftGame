@@ -15,22 +15,55 @@ async function main() {
     await nftContract.connect(minter1).mint()
     await nftContract.connect(minter2).mint()
 
+    let minter1Strength = await nftContract.connect(minter1).getStrengths(1)
+    let minter2Strength = await nftContract.connect(minter2).getStrengths(2)
 
-     const minter = ['minter1', 'minter2'];
+    console.log(minter1Strength, minter2Strength)
+
+
+    if(minter1Strength === minter2Strength){
+        const minter = ['minter1', 'minter2'];
+        const winner = Math.floor(Math.random() * minter.length);
+        if(minter[winner] == "minter1"){
+            minter1Strength ++
+        }else{
+            minter2Strength ++
+        }
+    }else if(minter1Strength > minter2Strength) {
+        const minter = ['minter1', 'minter2'];
+        const winingMinter = minter.concat(Array(minter1Strength).fill('minter1'));
+        const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
+        console.log(winner)
+        if(winner == "minter1"){
+            minter1Strength ++
+        }else{
+            minter2Strength ++
+        }
+    }else{
+        const minter = ['minter1', 'minter2'];
+        const winingMinter = minter.concat(Array(minter2Strength).fill('minter2'));
+        const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
+        console.log(winner)
+        if(winner == "minter1"){
+            minter1Strength ++
+        }else{
+            minter2Strength ++
+        }
+    }
 
     // Increase the probability of banana being chosen by adding it multiple times
-    const winingMinter = minter.concat(Array(4).fill('minter1'));
+    // const winingMinter = minter.concat(Array(4).fill('minter1'));
 
-    const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
-    if(winner == "minter1"){
-        await nftContract.connect(minter1).train(1)
-        const strength = await nftContract.connect(minter1).getStrengths(1)
-        console.log("minter1's current strenght is", strength)
-    }else{
-        await nftContract.connect(minter2).train(1)
-        const strength = await nftContract.connect(minter2).getStrengths(1)
-        console.log("minter2's current strenght is", strength)
-    }
+   
+    // if(winner == "minter1"){
+        
+        
+    //     console.log("minter1's current strength is", strength)
+    // }else{
+        
+        
+    //     console.log("minter2's current strength is", strength)
+    // }
 
 
 
