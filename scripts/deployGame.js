@@ -19,7 +19,7 @@ async function main() {
      const minter = ['minter1', 'minter2'];
 
     // Increase the probability of banana being chosen by adding it multiple times
-    const winingMinter = minter.concat(Array(4).fill('banana'));
+    const winingMinter = minter.concat(Array(4).fill('minter1'));
 
     const winner = winingMinter[Math.floor(Math.random() * winingMinter.length)];
     console.log(winner);
