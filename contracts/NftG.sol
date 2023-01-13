@@ -69,11 +69,8 @@ contract NftG is ERC721URIStorage  {
         _setTokenURI(newItemId, getTokenURI(newItemId));
     }
 
-    function train(uint256 tokenId) public {
-        require(_exists(tokenId));
-        require(ownerOf(tokenId) == msg.sender, "You must own this NFT to train it!");
-        uint256 currentLevel = tokenIdToStrengths[tokenId];
-        tokenIdToStrengths[tokenId] = currentLevel + 1;
-        _setTokenURI(tokenId, getTokenURI(tokenId));
+    function increaseStrength(uint256 tokenId, uint256 _strength) public {
+        tokenIdToStrengths[tokenId] = _strength;
+        
     }
 }
