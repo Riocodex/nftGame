@@ -17,16 +17,42 @@ async function main() {
 
     const minter1Strength = await nftContract.connect(minter1).getStrengths(1)
     const minter2Strength = await nftContract.connect(minter2).getStrengths(2)
-
     console.log(minter1Strength, minter2Strength)
-    minter1Strength++
-    console.log(minter1Strength, minter2Strength)
-    minter2Strength++
-    console.log(minter1Strength, minter2Strength)
-    minter1Strength++
-    console.log(minter1Strength, minter2Strength)
-
-
+    const minters = ['minter1', 'minter2']
+    if(minter1Strength == minter2Strength){
+        const winnerIndex = Math.floor(Math.random() * minters.length);
+        winner = minters[winnerIndex]
+        console.log("winner is ",winner)
+        if (winner == "minter1") {
+            minter1Strength++
+            console.log("current strenght", minter1Strength)
+        }else{
+            minter2Strength++
+            console.log("current strenght", minter2Strength)
+        }
+    }else if(minter1Strength > minter2Strength){
+        const higherMinter = minters.concat(Array(minter1Strength).fill('minter1'));
+        const winner =  higherMinter[Math.floor(Math.random() * higherMinter.length)]
+        console.log("winner is",winner)
+        if (winner == "minter1") {
+            minter1Strength++
+            console.log("current strenght", minter1Strength)
+        }else{
+            minter2Strength++
+            console.log("current strenght", minter2Strength)
+        }
+    }else{
+        const higherMinter = minters.concat(Array(minter2Strength).fill('minter2'));
+        const winner =  higherMinter[Math.floor(Math.random() * higherMinter.length)]
+        console.log("winner is",winner)
+        if (winner == "minter1") {
+            minter1Strength++
+            console.log("current strenght", minter1Strength)
+        }else{
+            minter2Strength++
+            console.log("current strenght", minter2Strength)
+        }
+    }
 
 
     //  const fruits = ['apple', 'banana'];
