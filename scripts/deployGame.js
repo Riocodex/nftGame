@@ -65,6 +65,10 @@ async function main() {
         //reinputting the strength in contract
         await nftContract.connect(minter1).increaseStrength(1,minter1Strength)
         await nftContract.connect(minter2).increaseStrength(2,minter2Strength)
+        let newStrength1, newStrength2
+        newStrength1 = await nftContract.connect(minter1).getStrengths(1)
+        newStrength2 = await nftContract.connect(minter2).getStrengths(2)
+
    //let the program run 10 times
    for (let index = 0; index < 10; index++) {
         choose()
