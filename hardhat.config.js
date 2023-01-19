@@ -5,6 +5,10 @@ require("@nomicfoundation/hardhat-toolbox");
 module.exports = {
   solidity: "0.8.17",
   networks:{
+    goerli: {
+      url: process.env.ALCHEMY_API_KEYy,
+      accounts: [process.env.PRIVATE_KEY],
+    },
     mumbai:{
       url: process.env.TESTNET_RPC,
       accounts: [process.env.PRIVATE_KEY]
