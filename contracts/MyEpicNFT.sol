@@ -17,9 +17,8 @@ contract MyEpicNFT is ERC721URIStorage {
 
   // I create three arrays, each with their own theme of random words.
   // Pick some random funny words, names of anime characters, foods you like, whatever! 
-  string[] firstWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
-  string[] secondWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
-  string[] thirdWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
+  string[] firstWords = ["Cryptosphere","VoidCraft","ShadowLand","Galaxia","Mysteria"];
+
 
   constructor() ERC721 ("RIONFT", "RIO") {
     console.log("This is my NFT contract. Woah!");
@@ -34,18 +33,6 @@ contract MyEpicNFT is ERC721URIStorage {
     return firstWords[rand];
   }
 
-  function pickRandomSecondWord(uint256 tokenId) public view returns (string memory) {
-    uint256 rand = random(string(abi.encodePacked("SECOND_WORD", Strings.toString(tokenId))));
-    rand = rand % secondWords.length;
-    return secondWords[rand];
-  }
-
-  function pickRandomThirdWord(uint256 tokenId) public view returns (string memory) {
-    uint256 rand = random(string(abi.encodePacked("THIRD_WORD", Strings.toString(tokenId))));
-    rand = rand % thirdWords.length;
-    return thirdWords[rand];
-  }
-
   function random(string memory input) internal pure returns (uint256) {
       return uint256(keccak256(abi.encodePacked(input)));
   }
@@ -55,11 +42,10 @@ contract MyEpicNFT is ERC721URIStorage {
 
     // We go and randomly grab one word from each of the three arrays.
     string memory first = pickRandomFirstWord(newItemId);
-    string memory second = pickRandomSecondWord(newItemId);
-    string memory third = pickRandomThirdWord(newItemId);
+   
 
     // I concatenate it all together, and then close the <text> and <svg> tags.
-    string memory finalSvg = string(abi.encodePacked(baseSvg, first, second, third, "</text></svg>"));
+    string memory finalSvg = string(abi.encodePacked(baseSvg, first,"</text></svg>"));
     console.log("\n--------------------");
     console.log(finalSvg);
     console.log("--------------------\n");
