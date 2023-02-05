@@ -1,4 +1,5 @@
-pragma solidity 0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.17;
 //0x8894F103956C082ed859F5a1D2016349491F0b4F
 
 import "@openzeppelin/contracts/utils/Strings.sol";
