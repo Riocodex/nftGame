@@ -26,7 +26,7 @@ contract MyEpicNFT is ERC721URIStorage {
 
   function convertPowerLevelToString()public view returns(string memory)
 {
-    
+    return powerLevel.toString();
 }
   function pickRandomFirstWord(uint256 tokenId) public view returns (string memory) {
     uint256 rand = random(string(abi.encodePacked("FIRST_WORD", Strings.toString(tokenId))));
@@ -46,7 +46,7 @@ contract MyEpicNFT is ERC721URIStorage {
     uint256 newItemId = _tokenIds.current();
 
     string memory first = pickRandomFirstWord(newItemId);
-    string memory strength = powerLevel;
+    string memory strength = convertPowerLevelToString();
     
     string memory combinedWord = string(abi.encodePacked(first,powerLevel));
 
