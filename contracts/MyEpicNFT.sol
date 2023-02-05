@@ -18,11 +18,16 @@ contract MyEpicNFT is ERC721URIStorage {
 
   string[] firstWords = ["Rio","onwuka"];
   uint256 powerLevel = 1;
+  
 
   constructor() ERC721 ("RIONFT", "RIO") {
     console.log("This is my NFT contract. Woah!");
   }
 
+  function convertPowerLevelToString()public view returns(string memory)
+{
+    
+}
   function pickRandomFirstWord(uint256 tokenId) public view returns (string memory) {
     uint256 rand = random(string(abi.encodePacked("FIRST_WORD", Strings.toString(tokenId))));
     rand = rand % firstWords.length;
