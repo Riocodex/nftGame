@@ -42,7 +42,7 @@ contract MyEpicNFT is ERC721URIStorage {
     string memory first = pickRandomFirstWord(newItemId);
     string memory combinedWord = string(abi.encodePacked(first));
 
-    string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, "</text></svg>"));
+    string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, strenght, "</text></svg>"));
 
     // Get all the JSON metadata in place and base64 encode it.
     string memory json = Base64.encode(
