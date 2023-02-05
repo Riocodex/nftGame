@@ -17,7 +17,7 @@ contract MyEpicNFT is ERC721URIStorage {
   string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='black' /><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
 
   string[] firstWords = ["Cryptosphere","VoidCraft","ShadowLand","Galaxia","Mysteria"];
-  uint256 strenght = 1;
+  uint256 strength = 1;
   
 
   constructor() ERC721 ("RIONFT", "RIO") {
@@ -42,7 +42,7 @@ contract MyEpicNFT is ERC721URIStorage {
     string memory first = pickRandomFirstWord(newItemId);
     string memory combinedWord = string(abi.encodePacked(first));
 
-    string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, strenght, "</text></svg>"));
+    string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, strength, "</text></svg>"));
 
     // Get all the JSON metadata in place and base64 encode it.
     string memory json = Base64.encode(
