@@ -29,7 +29,7 @@ contract MyEpicNFT is ERC721URIStorage {
     
   }
 
-  function powerLevel(uint256 strength)public view returns (string memory){
+  function powerLevel(uint256 strength)public returns (string memory){
     power = strength.toString();
     return power;
   }
