@@ -22,8 +22,8 @@ contract MyEpicNFT is ERC721URIStorage {
   string[] firstWords = ["Rosario","Maureen"];
   string[] secondWords = ["Love","ultimately love"];
   string[] thirdWords = ["eachother","sex"];
-  
-  string public powerLevel = powerLevel();
+  uint256 public powerlevel = 76;
+  string public power = powerLevel();
 
   constructor() ERC721 ("RIONFT", "RIO") {
     
@@ -61,7 +61,7 @@ contract MyEpicNFT is ERC721URIStorage {
     string memory first = pickRandomFirstWord(newItemId);
     string memory second = pickRandomSecondWord(newItemId);
     string memory third = pickRandomThirdWord(newItemId);
-    string memory combinedWord = string(abi.encodePacked(first, second, third,powerLevel));
+    string memory combinedWord = string(abi.encodePacked(first, second, third,power));
 
     string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, "</text></svg>"));
 
