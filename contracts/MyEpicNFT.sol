@@ -22,8 +22,7 @@ contract MyEpicNFT is ERC721URIStorage {
   string[] firstWords = ["Rosario","Maureen"];
   string[] secondWords = ["Love","ultimately love"];
   string[] thirdWords = ["eachother","sex"];
-  uint256 public powerlevel = 76;
-  string public power = powerLevel();
+  string public power = powerLevel(8);
 
   constructor() ERC721 ("RIONFT", "RIO") {
     
