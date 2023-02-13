@@ -7,10 +7,13 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "hardhat/console.sol";
 
+
+
 // We need to import the helper functions from the contract that we copy/pasted.
-import { Base64 } from "./libraries/Base64.sol";
+import { Base64 } from "./Base64.sol";
 
 contract MyEpicNFT is ERC721URIStorage {
+  using Strings for uint256;
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
 
@@ -19,9 +22,15 @@ contract MyEpicNFT is ERC721URIStorage {
   string[] firstWords = ["Rosario","Maureen"];
   string[] secondWords = ["Love","ultimately love"];
   string[] thirdWords = ["eachother","sex"];
+  uint256 public powerlevel = 76;
+  string public power = toString();
 
   constructor() ERC721 ("RIONFT", "RIO") {
-    console.log("This is my NFT contract. Woah!");
+    
+  }
+
+  function toString()public view returns (string memory){
+    return powerlevel.toString();
   }
 
   function pickRandomFirstWord(uint256 tokenId) public view returns (string memory) {
@@ -52,7 +61,7 @@ contract MyEpicNFT is ERC721URIStorage {
     string memory first = pickRandomFirstWord(newItemId);
     string memory second = pickRandomSecondWord(newItemId);
     string memory third = pickRandomThirdWord(newItemId);
-    string memory combinedWord = string(abi.encodePacked(first, second, third));
+    string memory combinedWord = string(abi.encodePacked(first, second, third,power));
 
     string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, "</text></svg>"));
 
@@ -63,7 +72,7 @@ contract MyEpicNFT is ERC721URIStorage {
               abi.encodePacked(
                   '{'
                       '"name": "', combinedWord, '", '
-                      '"description": "A highly acclaimed collection of squares.", '
+                      '"description": "A highly acclaimed collection of RIOS.", '
                       '"image": "data:image/svg+xml;base64,', Base64.encode(bytes(finalSvg)), '"'
                   '}'
               )
@@ -76,9 +85,7 @@ contract MyEpicNFT is ERC721URIStorage {
         abi.encodePacked("data:application/json;base64,", json)
     );
 
-    console.log("\n--------------------");
-    console.log(finalTokenUri);
-    console.log("--------------------\n");
+  
 
     _safeMint(msg.sender, newItemId);
     
@@ -86,6 +93,6 @@ contract MyEpicNFT is ERC721URIStorage {
     _setTokenURI(newItemId, finalTokenUri);
   
     _tokenIds.increment();
-    console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+  
   }
 }
