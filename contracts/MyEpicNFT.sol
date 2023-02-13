@@ -1,4 +1,4 @@
-pragma solidity 0.8.17;
+pragma solidity 0.8.0;
 
 // We need some util functions for strings.
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -17,11 +17,11 @@ contract MyEpicNFT is ERC721URIStorage {
 
   // I create three arrays, each with their own theme of random words.
   // Pick some random funny words, names of anime characters, foods you like, whatever! 
-  string[] firstWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
-  string[] secondWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
-  string[] thirdWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
+  string[] firstWords = ["Rosario","Maureen"];
+  string[] secondWords = ["Love","ultimately love"];
+  string[] thirdWords = ["eachother","sex"];
 
-  constructor() ERC721 ("RIONFT", "RIO") {
+  constructor() ERC721 ("SquareNFT", "SQUARE") {
     console.log("This is my NFT contract. Woah!");
   }
 
