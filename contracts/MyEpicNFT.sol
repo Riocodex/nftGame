@@ -1,4 +1,4 @@
-pragma solidity 0.8.0;
+pragma solidity 0.8.17;
 
 // We need some util functions for strings.
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -21,7 +21,7 @@ contract MyEpicNFT is ERC721URIStorage {
   string[] secondWords = ["Love","ultimately love"];
   string[] thirdWords = ["eachother","sex"];
 
-  constructor() ERC721 ("SquareNFT", "SQUARE") {
+  constructor() ERC721 ("RIONFT", "RIO") {
     console.log("This is my NFT contract. Woah!");
   }
 
