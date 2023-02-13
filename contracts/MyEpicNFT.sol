@@ -9,8 +9,9 @@ import "hardhat/console.sol";
 
 
 
+
 // We need to import the helper functions from the contract that we copy/pasted.
-import { Base64 } from "./libraries/Base64.sol";
+import { Base64 } from "./Base64.sol";
 
 contract MyEpicNFT is ERC721URIStorage {
   using Strings for uint256;
@@ -22,14 +23,14 @@ contract MyEpicNFT is ERC721URIStorage {
   string[] firstWords = ["Rosario","Maureen"];
   string[] secondWords = ["Love","ultimately love"];
   string[] thirdWords = ["eachother","sex"];
-  string public power = powerLevel(8);
+  string public power;
 
   constructor() ERC721 ("RIONFT", "RIO") {
     
   }
 
-  function powerLevel(uint256 power)public view returns (string memory){
-    return power.toString();
+  function powerLevel(uint256 strength)public{
+    power = strength.toString();
   }
 
   function pickRandomFirstWord(uint256 tokenId) public view returns (string memory) {
