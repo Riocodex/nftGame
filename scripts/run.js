@@ -6,7 +6,7 @@ const main = async () => {
 
     //set powerlevel
 
-    let strength = 
+    let strength =  await nftContract.powerLevel(10)
     // Call the function.
     let txn = await nftContract.makeAnEpicNFT()
     // Wait for it to be mined.
