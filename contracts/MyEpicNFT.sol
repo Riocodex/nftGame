@@ -11,7 +11,7 @@ import "hardhat/console.sol";
 
 
 // We need to import the helper functions from the contract that we copy/pasted.
-import { Base64 } from "./Base64.sol";
+import { Base64 } from "./libraries/Base64.sol";
 
 contract MyEpicNFT is ERC721URIStorage {
   using Strings for uint256;
