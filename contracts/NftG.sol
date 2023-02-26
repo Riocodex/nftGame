@@ -45,21 +45,21 @@ contract NftG is ERC721URIStorage  {
     }
 
 
-    function getTokenURI(uint256 tokenId) public view returns (string memory){
-        bytes memory dataURI = abi.encodePacked(
-            '{',
-                '"name": "Chain Battles #', tokenId.toString(), '",',
-                '"description": "Battles on chain",',
-                '"image": "', generateCharacter(tokenId), '"',
-            '}'
-        );
-        return string(
-            abi.encodePacked(
-                "data:application/json;base64,",
-                Base64.encode(dataURI)
-            )
-        );
-    }
+    // function getTokenURI(uint256 tokenId) public view returns (string memory){
+    //     bytes memory dataURI = abi.encodePacked(
+    //         '{',
+    //             '"name": "Chain Battles #', tokenId.toString(), '",',
+    //             '"description": "Battles on chain",',
+    //             '"image": "', generateCharacter(tokenId), '"',
+    //         '}'
+    //     );
+    //     return string(
+    //         abi.encodePacked(
+    //             "data:application/json;base64,",
+    //             Base64.encode(dataURI)
+    //         )
+    //     );
+    // }
 
     function mint() public {
         _tokenIds.increment();
