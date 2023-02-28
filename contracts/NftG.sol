@@ -45,53 +45,53 @@ contract NftG is ERC721URIStorage  {
     }
 
 
-    // function getTokenURI(uint256 tokenId) public view returns (string memory){
-    //     bytes memory dataURI = abi.encodePacked(
-    //         '{',
-    //             '"name": "Chain Battles #', tokenId.toString(), '",',
-    //             '"description": "Battles on chain",',
-    //             '"image": "', generateCharacter(tokenId), '"',
-    //         '}'
-    //     );
-    //     return string(
-    //         abi.encodePacked(
-    //             "data:application/json;base64,",
-    //             Base64.encode(dataURI)
-    //         )
-    //     );
-    // }
-
-    function tokenURI(uint256 _tokenId) public view virtual override returns(string memory _tokenURI) { 
-        require(_exists(_tokenId), "ERC721Metadata: URI query for nonexistent token"); 
-
-        if(tokenIdToJohnny[_tokenId].timeLeft >= 30 days  tokenIdToJohnny[_tokenId].frozenStage == 5) { 
-            string memory currentBaseURI = phaseToBaseURI[5]; 
-            return bytes(currentBaseURI).length > 0 ? 
-                string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
-
-        } else if(tokenIdToJohnny[_tokenId].timeLeft >= 22 days  tokenIdToJohnny[_tokenId].frozenStage == 4) { 
-            string memory currentBaseURI = phaseToBaseURI[4]; 
-            return bytes(currentBaseURI).length > 0 ? 
-                string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
-
-        } else if(tokenIdToJohnny[_tokenId].timeLeft >= 14 days  tokenIdToJohnny[_tokenId].frozenStage == 3) { 
-            string memory currentBaseURI = phaseToBaseURI[3]; 
-            return bytes(currentBaseURI).length > 0 ? 
-                string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
-
-        } else if(tokenIdToJohnny[_tokenId].timeLeft >= 7 days  tokenIdToJohnny[_tokenId].frozenStage == 2) { 
-            string memory currentBaseURI = phaseToBaseURI[2]; 
-            return bytes(currentBaseURI).length > 0 ? 
-                string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
-
-        } else if (tokenIdToJohnny[_tokenId].timeLeft <= 1 seconds || tokenIdToJohnny[_tokenId].frozenStage == 1) { 
-            string memory currentBaseURI = phaseToBaseURI[1]; 
-            return bytes(currentBaseURI).length > 0 ? 
-                string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
-
-        } 
-
+    function getTokenURI(uint256 tokenId) public view returns (string memory){
+        bytes memory dataURI = abi.encodePacked(
+            '{',
+                '"name": "Chain Battles #', tokenId.toString(), '",',
+                '"description": "Battles on chain",',
+                '"image": "', generateCharacter(tokenId), '"',
+            '}'
+        );
+        return string(
+            abi.encodePacked(
+                "data:application/json;base64,",
+                Base64.encode(dataURI)
+            )
+        );
     }
+
+    // function tokenURI(uint256 _tokenId) public view virtual override returns(string memory _tokenURI) { 
+    //     require(_exists(_tokenId), "ERC721Metadata: URI query for nonexistent token"); 
+
+    //     if(tokenIdToJohnny[_tokenId].timeLeft >= 30 days  tokenIdToJohnny[_tokenId].frozenStage == 5) { 
+    //         string memory currentBaseURI = phaseToBaseURI[5]; 
+    //         return bytes(currentBaseURI).length > 0 ? 
+    //             string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
+
+    //     } else if(tokenIdToJohnny[_tokenId].timeLeft >= 22 days  tokenIdToJohnny[_tokenId].frozenStage == 4) { 
+    //         string memory currentBaseURI = phaseToBaseURI[4]; 
+    //         return bytes(currentBaseURI).length > 0 ? 
+    //             string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
+
+    //     } else if(tokenIdToJohnny[_tokenId].timeLeft >= 14 days  tokenIdToJohnny[_tokenId].frozenStage == 3) { 
+    //         string memory currentBaseURI = phaseToBaseURI[3]; 
+    //         return bytes(currentBaseURI).length > 0 ? 
+    //             string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
+
+    //     } else if(tokenIdToJohnny[_tokenId].timeLeft >= 7 days  tokenIdToJohnny[_tokenId].frozenStage == 2) { 
+    //         string memory currentBaseURI = phaseToBaseURI[2]; 
+    //         return bytes(currentBaseURI).length > 0 ? 
+    //             string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
+
+    //     } else if (tokenIdToJohnny[_tokenId].timeLeft <= 1 seconds || tokenIdToJohnny[_tokenId].frozenStage == 1) { 
+    //         string memory currentBaseURI = phaseToBaseURI[1]; 
+    //         return bytes(currentBaseURI).length > 0 ? 
+    //             string(abi.encodePacked(currentBaseURI, _tokenId.toString(), baseExtension)) : ""; 
+
+    //     } 
+
+    // }
 
     function mint() public {
         _tokenIds.increment();
