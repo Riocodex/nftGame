@@ -11,7 +11,7 @@
 - The game will be a very cool game
 - We will have our very own marketplace(makes it easier for users to sell their nfts immediately)
 - monetize the application(some certain nft will be put in contract)
-updated
+
 
 
 
