@@ -56,7 +56,7 @@ contract MyEpicNFT is ERC721URIStorage {
       return uint256(keccak256(abi.encodePacked(input)));
   }
 
-  function makeAnEpicNFT() public {
+  function makeAnEpicNFT() public { 
     uint256 newItemId = _tokenIds.current();
 
     string memory first = pickRandomFirstWord(newItemId);
